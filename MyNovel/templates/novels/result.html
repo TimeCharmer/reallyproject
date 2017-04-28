@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>搜索结果</title>
+</head>
+<body>
+
+	<b>{{name}}的搜索结果是：</b> 
+	{%for item in result%}
+	<p>
+	<li>
+	<b>{{item['title']}}<br>
+	网站地址是：{{item['netloc']}}<br>
+	<a href="/chapter?url={{item['url']}}">网站的网址是：{{item['url']}}</a><br>
+	网站是否解析：{{item['is_parse']}}</b><br>
+	</li> 
+	</p>
+	{% endfor %}
+</body>
+</html>

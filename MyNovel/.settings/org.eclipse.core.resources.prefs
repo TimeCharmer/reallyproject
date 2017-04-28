@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//config/rules.py=utf-8
+encoding//spider/baiduspider.py=utf8
+encoding//view/search.py=utf-8
+encoding/bottle.py=utf-8
+encoding/server.py=utf-8
