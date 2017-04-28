@@ -1,2 +1,3 @@
-#this application is a mark program for HTML
-#you can extends it for other language
+this a novel spider for python2.7 
+based on bottle
+record on owllook
