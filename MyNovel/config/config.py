@@ -3,11 +3,11 @@ import logging
 
 # Search engine
 URL_PHONE = 'https://m.baidu.com/s'
-URL_PC = 'http://www.baidu.com/s'
+URL_PC = 'https://www.baidu.com/s'
 BAIDU_RN = 15
 SO_URL = "https://www.so.com/s"
 
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'
 
 # logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')

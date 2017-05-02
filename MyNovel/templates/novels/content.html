@@ -3,12 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <title>正文</title>
+<style type="text/css">
+.all-content {
+    width: 65% !important;
+    box-shadow: 0 0 15px 0 #CCC;
+    background: #F6F4EC;
+    margin: 0 auto 30px;
+    border-radius: 3px;
+    padding-bottom: 10px;
+    min-height: 600px;
+    margin-bottom: 70px;
+    border: 1px solid #d8d8d8;
+}
+</style>
 </head>
 <body>
 	<center>
+	<div class="all-content">
 	<input id="content_url" type="hidden" value="0">
     <input id="url" type="hidden" value="http://www.baidu.com">
 		{{content|safe}}
+	</div>
 	</center>
 </body>
 </html>

@@ -3,19 +3,122 @@
 <head>
 <meta charset="utf-8" />
 <title>搜索结果</title>
+<style type="text/css">
+.navbar {
+	border-radius: 0 !important;
+	min-height: 65px !important;
+}
+
+.result {
+	margin-right: 0 !important;
+	padding-right: 15px;
+	padding-left: 7%;
+	margin-bottom: 60px;
+}
+
+.result>p {
+	padding-left: 4%;
+}
+
+.form-control {
+	width: 90% !important;
+	height: 35px !important;
+	line-height: 35px !important;
+	margin-top: 20px;
+	border-radius: 0 !important;
+}
+
+div.item>li {
+	margin-top: 15px;
+}
+
+div.item>li>a {
+	color: #38556A;
+	font-size: 16px;
+}
+
+.netloc {
+	display: block;
+	color: #006621;
+}
+
+.result_item {
+	width: 35em;
+	height: 95px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 5%;
+	font-size: 15px;
+}
+
+.tags {
+	position: relative;
+	margin-top: 5px;
+}
+
+.label {
+	padding: 0.3em .6em .3em !important;
+	position: absolute;
+	right: 0;
+}
+
+.login {
+	min-height: 65px;
+	text-align: center;
+}
+
+.login>a {
+	margin-top: 15px;
+}
+
+.modal-dialog .form-control {
+	margin-top: 0 !important;
+}
+
+@media ( min-width : 1680px) {
+	.result {
+		position: absolute;
+		left: 1%;
+	}
+}
+
+@media ( max-width : 767px) {
+	.result {
+		padding-right: 0 !important;
+	}
+	.show-result {
+		margin-bottom: 40px;
+	}
+	.col-xs-12 {
+		padding-left: 0 !important;
+	}
+	.move {
+		display: none;
+	}
+	.show-result .tags .label {
+		right: -10px !important;
+	}
+	.netloc i {
+		font-size: 13px;
+	}
+}
+</style>
 </head>
 <body>
-
-	<b>{{name}}的搜索结果是：</b> 
-	{%for item in result%}
-	<p>
-	<li>
-	<b>{{item['title']}}<br>
-	网站地址是：{{item['netloc']}}<br>
-	<a href="/chapter?url={{item['url']}}">网站的网址是：{{item['url']}}</a><br>
-	网站是否解析：{{item['is_parse']}}</b><br>
-	</li> 
-	</p>
-	{% endfor %}
+	<div class="container">
+		<div class="result row">
+			<div class="show-result col-sm-7 col-xs-12">
+				<b>{{name}}的搜索结果是：</b> {%for item in result%}
+				<p>
+				<li><b>{{item['title']}}<br> 网站地址是：{{item['netloc']}}<br>
+						<a href="/chapter?url={{item['url']}}">网站的网址是：{{item['url']}}</a><br>
+						网站是否解析：{{item['is_parse']}}
+				</b><br></li>
+				</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </body>
 </html>

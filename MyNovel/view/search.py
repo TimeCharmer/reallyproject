@@ -29,9 +29,9 @@ def getChapter(url):
     content=bd.getchaperfrompage(url)
     if content:
         #return content.decode('unicode_escape')
-        if content['content_url']==1:
+        if content['content_url']=='1':
             soap= content['content'].replace("href=\"", "href=\"/content?url=").decode('unicode_escape')
-        elif content['content_url']==0:
+        elif content['content_url']=='0':
             soap= content['content'].replace("href=\"", "href=\"/content?url="+content['url']).decode('unicode_escape')
         else:
             soap= content['content'].replace("href=\"", "href=\"/content?url="+content['content_url']).decode('unicode_escape')

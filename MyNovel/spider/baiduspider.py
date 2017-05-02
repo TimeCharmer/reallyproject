@@ -8,9 +8,15 @@ from function import get_random_user_agent
 from config.config import URL_PC, URL_PHONE, LOGGER,  BAIDU_RN
 from config.rules import BLACK_DOMAIN, RULES
 from bs4 import BeautifulSoup
+from multiprocessing.dummy import Pool as ThreadPool 
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
+
+def ffilter(result):
+    if result==None:
+        return False
+    return True 
 
 def getBaidu(name):
     sheaders = {'user-agent': get_random_user_agent()}
@@ -22,6 +28,11 @@ def getBaidu(name):
     page = response.read()  
     soup = BeautifulSoup(page, 'html5lib')
     result = soup.find_all(class_='result')
+#     pool = ThreadPool(4) 
+#     extra_tasks=pool.map(data_extraction_for_web_baidu,result)
+#     pool.close() 
+#     pool.join() 
+#     return filter(ffilter,extra_tasks)
     extra_tasks=[]
     for i in result:
         item=data_extraction_for_web_baidu( html=i)
@@ -31,10 +42,13 @@ def getBaidu(name):
  
 def get_real_url( url):
     headers = {'user-agent': get_random_user_agent()}
-    request = urllib2.Request(url,headers=headers)  
-    response = urllib2.urlopen(request)  
-    url = response.url if response.url else None
-    return  url
+    request = urllib2.Request(url,headers=headers)
+    try:
+        response = urllib2.urlopen(request)  
+        real_url = response.url
+    except urllib2.HTTPError, e:
+        real_url=None
+    return  real_url
 
 def getchaperfrompage(url):
     netloc = urlparse(url).netloc
@@ -54,7 +68,6 @@ def cache_owllook_novels_chapter(url,netloc):
     response = urllib2.urlopen(request)  
     html = response.read()
     
-    print html
     soup = BeautifulSoup(html, 'html5lib')
     selector = RULES[netloc].chapter_selector
     if selector.get('id', None):
