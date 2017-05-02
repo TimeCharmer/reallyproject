@@ -1,3 +1,13 @@
-this a novel spider for python2.7 
-based on bottle
-record on owllook
+这是一个基于Python2.7的小说搜索引擎。
+参考了owllook项目，链接在这儿：http://www.jianshu.com/u/372d86a15cdd，
+这个项目也是开源的，在github上可以找到源码，还有搭好的网站。
+
+因为我也有个服务器，所以想要搞个小说网站自己玩，不过原项目是基于python3的，
+而且用了一些轮子，我没有成功运行起来，所有有了移植到python2.7上的想法。
+
+本项目是基于bottle这个轻量级框架的，只需要运行server.py就可以跑起来，爬取
+规则和模板都参考了源项目，写完了才发现原作者很厉害
+
+requirment.txt是我电脑里所有的库，因为没有配合virtualenv,有部分项目里面不需要。
+
+界面什么的，我懒，没做，反正自己搞着玩的（主要是不太会前端技术）

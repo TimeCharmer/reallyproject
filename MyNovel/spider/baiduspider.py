@@ -28,17 +28,17 @@ def getBaidu(name):
     page = response.read()  
     soup = BeautifulSoup(page, 'html5lib')
     result = soup.find_all(class_='result')
-#     pool = ThreadPool(4) 
-#     extra_tasks=pool.map(data_extraction_for_web_baidu,result)
-#     pool.close() 
-#     pool.join() 
-#     return filter(ffilter,extra_tasks)
-    extra_tasks=[]
-    for i in result:
-        item=data_extraction_for_web_baidu( html=i)
-        if item != None:
-            extra_tasks.append(item)
-    return extra_tasks
+    pool = ThreadPool(8) 
+    extra_tasks=pool.map(data_extraction_for_web_baidu,result)
+    pool.close() 
+    pool.join() 
+    return filter(ffilter,extra_tasks)
+#     extra_tasks=[]
+#     for i in result:
+#         item=data_extraction_for_web_baidu( html=i)
+#         if item != None:
+#             extra_tasks.append(item)
+#     return extra_tasks
  
 def get_real_url( url):
     headers = {'user-agent': get_random_user_agent()}
