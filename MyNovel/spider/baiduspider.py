@@ -22,7 +22,7 @@ def getBaidu(name):
     sheaders = {'user-agent': get_random_user_agent()}
     params = {'wd': name}
     #data = urllib.urlencode(params)  
-    url=URL_PC+"?wd="+name
+    url=URL_PC+"?wd="+name+"&rn=20"
     request = urllib2.Request(url,headers=sheaders)  
     response = urllib2.urlopen(request)  
     page = response.read()  

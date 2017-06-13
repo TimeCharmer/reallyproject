@@ -42,4 +42,6 @@ def content():
 def chapter():
     url = request.GET.get('url',None)
     return search.getChapter(url)
-run(host='0.0.0.0', port=10079)
+import gevent.monkey
+gevent.monkey.patch_all()
+run(host='0.0.0.0', port=10079,server='gevent')
